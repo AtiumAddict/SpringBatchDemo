@@ -14,8 +14,10 @@ import static com.atiumaddict.springbatchdemo.utils.JobUtils.LINES_TO_SKIP_DEFAU
  * Default FlatFileItemReader for delimited files.
  */
 public class DelimitedFileReaderDefault extends FlatFileItemReader {
+
     /**
-     *
+     * Creates a {@link DelimitedFileReaderDefault} according to the resource provided, with a line mapper that uses the
+     * delimiting character, the field names and the {@link FieldSetMapper} provided in the {@link FileReaderContext}.
      */
     public DelimitedFileReaderDefault(FileReaderContext context) {
         setResource(context.getDefaultFileResource());
