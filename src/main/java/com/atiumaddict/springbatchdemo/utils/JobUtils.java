@@ -35,18 +35,14 @@ public class JobUtils {
     /*
      * Directories
      */
-    public static String ROOT_DIR;
-
     public static String BASEPATH_DIR;
 
 
     @Autowired
     public void setValues(
-            @Value("${app.dir.root}") String root,
-            @Value("${app.dir.root.basepath}") String basepath,
+            @Value("${app.dir.basepath}") String basepath,
             @Value("${application.globalvalues.linestoskip}") int linesToSkip
                          ) {
-        ROOT_DIR = root;
         BASEPATH_DIR = basepath;
         LINES_TO_SKIP_DEFAULT = linesToSkip;
     }
