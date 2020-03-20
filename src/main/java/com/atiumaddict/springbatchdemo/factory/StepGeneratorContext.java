@@ -1,6 +1,6 @@
 package com.atiumaddict.springbatchdemo.factory;
 
-import com.atiumaddict.springbatchdemo.configurations.BatchConfiguration;
+import com.atiumaddict.springbatchdemo.configuration.BatchConfiguration;
 import com.atiumaddict.springbatchdemo.factory.read.FileReaderContext;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

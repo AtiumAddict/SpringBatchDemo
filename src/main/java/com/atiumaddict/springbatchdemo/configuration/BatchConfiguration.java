@@ -1,4 +1,4 @@
-package com.atiumaddict.springbatchdemo.configurations;
+package com.atiumaddict.springbatchdemo.configuration;
 
 import org.springframework.batch.core.configuration.annotation.EnableBatchProcessing;
 import org.springframework.batch.core.configuration.annotation.JobBuilderFactory;

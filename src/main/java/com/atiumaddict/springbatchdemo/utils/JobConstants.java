@@ -10,11 +10,15 @@ public class JobConstants {
      * Job IDs
      */
 
-    public static final String IMPORT_JOB_ID = "ImportJob";
+    public static final String MIGRATION_JOB_ID = "MigrationJob";
 
     /*
      * Imports: Step IDs
      */
 
-    public static final String IMPORT_STEP_ID = "ImportStep";
+    public static final String VIRUS_IMPORT_STEP_ID = "VirusImportStep";
+
+    public static final String DOCTOR_IMPORT_STEP_ID = "DoctorImportStep";
+
+    public static final String PATIENT_IMPORT_STEP_ID = "PatientImportStep";
 }

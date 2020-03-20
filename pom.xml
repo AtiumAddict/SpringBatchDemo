@@ -18,6 +18,7 @@
 		<java.version>1.8</java.version>
 		<apache-commons-lang3.version>3.9</apache-commons-lang3.version>
 		<apache-commons-io.version>2.6</apache-commons-io.version>
+		<spring-batch.version>4.2.1.RELEASE</spring-batch.version>
 	</properties>
 
 	<dependencies>
@@ -63,6 +64,12 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.springframework.batch/spring-batch-core -->
+		<dependency>
+			<groupId>org.springframework.batch</groupId>
+			<artifactId>spring-batch-core</artifactId>
+			<version>${spring-batch.version}</version>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.batch</groupId>
 			<artifactId>spring-batch-test</artifactId>
@@ -77,6 +84,10 @@
 			<groupId>commons-io</groupId>
 			<artifactId>commons-io</artifactId>
 			<version>${apache-commons-io.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.batch</groupId>
+			<artifactId>spring-batch-test</artifactId>
 		</dependency>
 	</dependencies>
 

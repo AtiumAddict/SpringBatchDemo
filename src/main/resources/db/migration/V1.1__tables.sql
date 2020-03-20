@@ -2,7 +2,7 @@ create TABLE infections (
     id bigint PRIMARY KEY,
     name varchar(200) NOT NULL, 
     type varchar(200) NOT NULL,
-    description varchar(500)
+    description varchar(2000)
 );
 
 create sequence infection_id_seq start with 1000 increment by 50;
