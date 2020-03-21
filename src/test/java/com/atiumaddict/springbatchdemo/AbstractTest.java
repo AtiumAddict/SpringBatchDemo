@@ -1,5 +1,6 @@
 package com.atiumaddict.springbatchdemo;
 
+import org.junit.Before;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -29,6 +30,11 @@ public abstract class AbstractTest {
     public void setDataSource(DataSource dataSource) {
         this.jdbcTemplate = new JdbcTemplate(dataSource);
         this.dataSource = dataSource;
+    }
+
+    @Before
+    public void prepareData() {
+        DataHelper.deleteTables(jdbcTemplate);
     }
 
 

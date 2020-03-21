@@ -2,6 +2,7 @@ package com.atiumaddict.springbatchdemo.jobs.migration;
 
 import com.atiumaddict.springbatchdemo.configuration.BatchConfiguration;
 import com.atiumaddict.springbatchdemo.factory.listen.JobExecutionListenerDefault;
+import com.atiumaddict.springbatchdemo.jobs.migration.steps.importdoctors.DoctorImportImportItemHelper;
 import com.atiumaddict.springbatchdemo.jobs.migration.steps.importviruses.VirusImportImportItemHelper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.batch.core.Job;
@@ -34,6 +35,7 @@ public class MigrationBatchConfig {
                 .listener(new JobExecutionListenerDefault(MIGRATION_JOB_ID))
                 .incrementer(new RunIdIncrementer())
                 .start(new VirusImportImportItemHelper().importViruses(batch))
+                .start(new DoctorImportImportItemHelper().importDoctors(batch))
                 .build();
     }
 

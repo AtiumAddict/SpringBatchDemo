@@ -11,6 +11,6 @@ public class DoctorDto {
     private Long id;
     private String firstName;
     private String lastName;
-    private Gender gender;
+    private String gender;
     private String phoneNumber;
 }

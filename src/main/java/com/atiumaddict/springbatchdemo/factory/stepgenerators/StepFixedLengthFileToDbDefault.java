@@ -2,6 +2,7 @@ package com.atiumaddict.springbatchdemo.factory.stepgenerators;
 
 import com.atiumaddict.springbatchdemo.factory.StepGeneratorContext;
 import com.atiumaddict.springbatchdemo.factory.listen.StepExecutionListenerDefault;
+import com.atiumaddict.springbatchdemo.factory.read.FlatFileItemReaderFixedLengthDefault;
 import com.atiumaddict.springbatchdemo.factory.write.writers.JdbcBatchItemWriterDefault;
 import org.springframework.batch.core.Step;
 import org.springframework.util.Assert;
@@ -18,7 +19,7 @@ public class StepFixedLengthFileToDbDefault<S, T> extends StepGenerator {
         return stepGeneratorContext.getBatchConfiguration().stepBuilderFactory.get(stepGeneratorContext.getStepName())
                 .listener(new StepExecutionListenerDefault(stepGeneratorContext.getStepName()))
                 .<S, T>chunk(Optional.ofNullable(stepGeneratorContext.getChunkSize()).orElse(100))
-                .reader(stepGeneratorContext.getReader())
+                .reader(new FlatFileItemReaderFixedLengthDefault(stepGeneratorContext.getReaderContext()))
                 .processor(stepGeneratorContext.getProcessor())
                 .writer(Optional.ofNullable(stepGeneratorContext.getWriter())
                         .orElse(new JdbcBatchItemWriterDefault(
@@ -31,7 +32,9 @@ public class StepFixedLengthFileToDbDefault<S, T> extends StepGenerator {
     @Override
     public void validateContext() {
         Object[] notNullElements = {
-                stepGeneratorContext.getReader(),
+                stepGeneratorContext.getReaderContext(),
+                stepGeneratorContext.getReaderContext().getDefaultFileResource(),
+                stepGeneratorContext.getReaderContext().getRanges(),
                 Optional.ofNullable((Object) stepGeneratorContext.getWriter()).orElse(stepGeneratorContext.getWriterSqlStatement())
         };
         Assert.noNullElements(notNullElements, "Step context is missing one or more elements!");
