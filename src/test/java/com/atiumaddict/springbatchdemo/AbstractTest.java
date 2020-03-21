@@ -2,6 +2,7 @@ package com.atiumaddict.springbatchdemo;
 
 import org.junit.Before;
 import org.junit.runner.RunWith;
+import org.springframework.batch.test.JobLauncherTestUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.flyway.FlywayMigrationStrategy;
@@ -19,6 +20,9 @@ import javax.sql.DataSource;
 @SpringBootTest
 @ContextConfiguration(classes = SpringBatchDemoApplication.class)
 public abstract class AbstractTest {
+    
+    @Autowired
+    protected JobLauncherTestUtils jobLauncherTestUtils;
 
     private static boolean dataInitializationIsDone = false;
 

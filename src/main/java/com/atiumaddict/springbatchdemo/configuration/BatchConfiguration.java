@@ -1,8 +1,10 @@
 package com.atiumaddict.springbatchdemo.configuration;
 
+import org.springframework.batch.core.Job;
 import org.springframework.batch.core.configuration.annotation.EnableBatchProcessing;
 import org.springframework.batch.core.configuration.annotation.JobBuilderFactory;
 import org.springframework.batch.core.configuration.annotation.StepBuilderFactory;
+import org.springframework.batch.test.JobLauncherTestUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -48,5 +50,15 @@ public class BatchConfiguration {
         return taskExecutor;
     }
 
+    @Bean
+    public JobLauncherTestUtils getJobLauncherTestUtils() {
 
+        return new JobLauncherTestUtils() {
+            @Override
+            @Autowired
+            public void setJob(Job job) {
+                super.setJob(job);
+            }
+        };
+    }
 }
